@@ -156,21 +156,14 @@ RUN mkdir -p ~/.pip/ && \
     torchvision \
     lxml==4.2.1 \
     xlearn==0.40a1 \
-    networkx==2.1 \
-    catboost==0.8.1 \
     mlxtend==0.12.0 \
     librosa==0.6.1 \
     python_speech_features==0.6 \
     sympy==1.2 \
     nltk==3.3 \
-    NiftyNet==0.3.0 \
     tornado==4.5.3 \
-    hmmlearn==0.2.1 \
     scikit-image==0.14.1 \
     onnx==1.3.0 \
-    allennlp==0.8.0 \
-    pystan==2.18.0.0 \
-    fbprophet==0.3.post2 \
     # klab-plugin
     klab-autotime==0.0.2 \
     && \
