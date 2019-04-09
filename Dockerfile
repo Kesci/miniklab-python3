@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER K-Lab Authors <service@kesci.com>
 
 USER root 
+
 # Configure environment
 ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
@@ -23,6 +24,7 @@ RUN apt-get update && apt-get -yqq dist-upgrade && \
     locales \
     bzip2 \
     ca-certificates \
+    build-essential \
     sudo \
     wget \
     # Install all OS dependencies for fully functional notebook server
