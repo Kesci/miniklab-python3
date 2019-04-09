@@ -3,7 +3,7 @@ services:
     - docker
 before_install:
     - sudo useradd -u 1000 kesci
-    - sudo chown -R kesci test/
+#    - sudo chown -R kesci test/
 script:
     - bash build.sh
 after_success:

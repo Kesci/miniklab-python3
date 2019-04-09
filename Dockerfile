@@ -157,8 +157,6 @@ RUN mkdir -p ~/.pip/ && \
     lxml==4.2.1 \
     xlearn==0.40a1 \
     mlxtend==0.12.0 \
-    librosa==0.6.1 \
-    python_speech_features==0.6 \
     sympy==1.2 \
     nltk==3.3 \
     tornado==4.5.3 \
