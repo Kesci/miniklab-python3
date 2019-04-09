@@ -15,7 +15,7 @@ fi
 if [[ $diffname =~ "Dockerfile" ]]
 then
 	echo "docker file changed, build it."
-	( cd base && docker build -t klabteam/miniklab . )
+	docker build -t klabteam/miniklab .
 	exit 0
 else
 	echo "docker file not changed, skip it."

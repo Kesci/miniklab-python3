@@ -145,7 +145,6 @@ RUN mkdir -p ~/.pip/ && \
     jieba==0.39 \
     lightgbm==2.1.0 \
     xlrd==1.0.0 \
-    h2o==3.18.0.4 \
     mxnet==1.1.0.post0 \
     wordcloud==1.4.1 \
     gensim==3.4.0 \
