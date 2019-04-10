@@ -156,7 +156,6 @@ RUN mkdir -p ~/.pip/ && \
     https://download.pytorch.org/whl/cpu/torch-1.0.0-cp36-cp36m-linux_x86_64.whl \
     torchvision \
     lxml==4.2.1 \
-    xlearn==0.40a1 \
     mlxtend==0.12.0 \
     sympy==1.2 \
     nltk==3.3 \
