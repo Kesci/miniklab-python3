@@ -57,22 +57,6 @@ RUN su -m -l $NB_USER -c '\
     ' && \
     echo "jpeg 9*" >> /opt/conda/conda-meta/pinned
 
-# Delete files that pip caches when installing a package.
-RUN rm -rf /root/.cache/pip/* && \
-    # Delete old downloaded archive files 
-    apt-get autoremove -y && \
-    # Delete downloaded archive files
-    apt-get clean && \
-    # Ensures the current working directory won't be deleted
-    cd /usr/local/src/ && \
-    # Delete source files used for building binaries
-    rm -rf /usr/local/src/* && \
-    # Delete conda downloaded tarballs
-    conda clean -y --tarballs && \
-    # Delete matplotlib cache
-    rm -rf /home/$NB_USER/.cache/matplotlib && \
-    # Remove conda install script
-    rm /tmp/Miniconda3-latest-Linux-x86_64.sh
 
 # Make sure /usr/local/ and conda directories belong to user, and install fonts.
 RUN chown $NB_USER /usr/local/bin && \
@@ -172,4 +156,22 @@ COPY MicrosoftYaHei.ttf /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-da
 RUN echo 'font.family         : sans-serif' >> /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc && \
     echo 'font.sans-serif     : Microsoft YaHei, DejaVu Sans, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Arial, Helvetica, Avant Garde, sans-serif' >> /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc && \
     echo 'axes.unicode_minus  : False' >> /opt/conda/lib/python3.6/site-packages/matplotlib/mpl-data/matplotlibrc
-RUN rm -rf /home/$NB_USER/.cache/pip/*
+
+USER root
+# Delete files that pip caches when installing a package.
+RUN rm -rf /root/.cache/pip/* && \
+    rm -rf /home/$NB_USER/.cache/pip/* && \
+    # Delete old downloaded archive files
+    apt-get autoremove -y && \
+    # Delete downloaded archive files
+    apt-get clean && \
+    # Ensures the current working directory won't be deleted
+    cd /usr/local/src/ && \
+    # Delete source files used for building binaries
+    rm -rf /usr/local/src/* && \
+    # Delete conda downloaded tarballs
+    conda clean -y --tarballs && \
+    # Delete matplotlib cache
+    rm -rf /home/$NB_USER/.cache/matplotlib && \
+    # Remove conda install script
+    rm /tmp/Miniconda3-latest-Linux-x86_64.sh
